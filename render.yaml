@@ -3,7 +3,10 @@ services:
     name: sharesphere-app
     runtime: docker
     plan: free
+    port: 8080
+    healthCheckPath: /
     envVars:
+
       - key: DB_URL
         value: "jdbc:postgresql://ep-soft-sunset-am6a2oz3-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require"
       - key: DB_USER
