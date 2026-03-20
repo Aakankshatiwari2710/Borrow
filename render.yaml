@@ -5,30 +5,9 @@ services:
     plan: free
     envVars:
       - key: DB_URL
-        value: "jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}"
-      - key: DATABASE_HOST
-        fromDatabase:
-          name: sharesphere-db
-          property: host
-      - key: DATABASE_PORT
-        fromDatabase:
-          name: sharesphere-db
-          property: port
-      - key: DATABASE_NAME
-        fromDatabase:
-          name: sharesphere-db
-          property: databaseName
+        value: "jdbc:postgresql://ep-soft-sunset-am6a2oz3-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require"
       - key: DB_USER
-        fromDatabase:
-          name: sharesphere-db
-          property: user
+        value: "neondb_owner"
       - key: DB_PASSWORD
-        fromDatabase:
-          name: sharesphere-db
-          property: password
+        sync: false # Set this in Render dashboard
 
-databases:
-  - name: sharesphere-db
-    plan: free
-    databaseName: sharesphere
-    user: sharesphere_user
